@@ -1,19 +1,18 @@
 import React, { useEffect, useState} from 'react';
-import { Button } from './button';
+import './app.css';
 
-export function Input (){
-    const [inputName, setInputName] = useState('');
+export function Input (props: {inputComplete}){
+    const [inputValue, setInputValue] = useState('');
+    
     return (
         <div>
-            <div className = "headline"> Введите ФИО сотрудника, которого хотите добавить:</div>
             <input 
                 type="text"                 
                 name='inputName' 
-                value={inputName} 
+                value={inputValue} 
                 className = "input"
-                onChange={(event) => setInputName(event.target.value)}
-                />
-                <Button inputValue = {inputName}/>
+                onChange={(event) => {setInputValue(event.target.value); props.inputComplete(event)}}
+            />            
         </div>
     );
 }
