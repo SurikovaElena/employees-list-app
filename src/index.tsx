@@ -14,13 +14,11 @@ type TEmployee = {
 //тип данных для Списка сотрудников
 export type TEmployees = TEmployee[];
 
-// Список сотрудников
-export const employeeList: TEmployees = [] ;
+
 
 function App() {
-  
   const [inputValue, setInputValue] = useState('');
-  const [newEmployeeList, setEmployeeList] = useState(employeeList);
+  const [employeeList, setEmployeeList] = useState<TEmployees>([]);
 
   //получение значения inputa 
   const inputComplete = (event) => { 
@@ -34,22 +32,21 @@ function App() {
       id: id,
       name: inputValue
     };
-    setEmployeeList([...newEmployeeList, newEmployee]);
-    employeeList.push(newEmployee);
+    setEmployeeList([...employeeList, newEmployee]);
   }
 
   return (
-        <React.StrictMode>
+        <>
           <div className = "headline"> 
             Введите ФИО сотрудника, которого хотите добавить:
           </div>
-          <Input inputComplete = {inputComplete}/>
-          <Button addEmployee = {addEmployee}/>
+          <Input inputComplete={inputComplete}/>
+          <Button addEmployee={addEmployee}/>
           <div className = "headline">
             Список сотрудников:
           </div>
-          <EmployeeList employeeList = { employeeList}/>
-        </React.StrictMode>
+          <EmployeeList employeeList={employeeList}/>
+        </>
   );
 }
 

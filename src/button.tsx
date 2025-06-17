@@ -1,5 +1,4 @@
 import React, { useEffect, useState} from 'react';
-import './app.css';
 
 export function Button (props: {addEmployee}){
     return (
