@@ -1,5 +1,4 @@
 import React, { useEffect, useState} from 'react';
-import './app.css';
 import { TEmployees } from './index';
 
 export function EmployeeList (props: {employeeList : TEmployees}){
